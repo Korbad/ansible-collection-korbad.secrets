@@ -1,0 +1,1 @@
+bitbucket_http_api_token: "{{ lookup('file', managed_secrets_path+'/bitbucket_http_api_token') }}"
