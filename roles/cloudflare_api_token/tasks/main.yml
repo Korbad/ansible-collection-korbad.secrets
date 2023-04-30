@@ -1,0 +1,6 @@
+---
+- name: Ensure managed secret exists
+  include_role:
+    name: korbad.project_management.managed_user_secret
+  vars:
+    managed_secret_name: cloudflare_api_token

@@ -1,0 +1,14 @@
+---
+- name: Query user for information
+  include_role:
+    name: korbad.workstation.yad
+    tasks_from: query_user.yml
+  vars:
+    yad_title: "{{ managed_secret_name }}" 
+    yad_text: "{{ managed_secret_name }}?"
+  no_log: True
+
+- name: Ensure fact exists with managed secret value
+  set_fact:
+    "{{ managed_secret_name }}": "{{ yad_result.stdout }}"
+  no_log: True
