@@ -1,0 +1,2 @@
+ldap_password: "{{ lookup('file', managed_secrets_path+'/ldap_password') }}"
+ldap_username: "{{ lookup('file', managed_secrets_path+'/ldap_username') }}"
