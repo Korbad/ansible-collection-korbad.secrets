@@ -1,0 +1,1 @@
+http_basic_auth_token: "{{ (ldap_username ~ ':' ~ ldap_password) | b64encode }}"
