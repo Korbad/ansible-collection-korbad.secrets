@@ -1,0 +1,2 @@
+git_ssh_key_name: id_rsa
+git_ssh_key_path: ~/.ssh/{{ git_ssh_key_name }}
