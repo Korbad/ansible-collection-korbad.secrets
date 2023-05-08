@@ -1,0 +1,11 @@
+- name: Prompt for user secret input
+  ansible.builtin.pause:
+    prompt: "{{ user_secret_name }}:"
+    echo: false
+  register: user_input_result
+  when: (user_secret_name is defined) and (vars[user_secret_name] | default('') | length == 0)
+
+- name: Set secret input as fact
+  ansible.builtin.set_fact:
+    "{{ user_secret_name }}": "{{ user_input_result.user_input }}"
+  when: user_input_result is not skipped
