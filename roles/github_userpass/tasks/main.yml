@@ -1,0 +1,9 @@
+---
+- name: Ensure managed github secrets exist
+  include_role:
+    name: korbad.project_management.managed_user_secret
+  vars:
+    managed_user_secret_name: "{{ item }}"
+  loop:
+  - github_username
+  - github_password
