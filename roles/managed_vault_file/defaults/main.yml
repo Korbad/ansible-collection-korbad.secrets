@@ -1,0 +1,3 @@
+managed_vault_password_filename: default_vault
+managed_vault_directory_path: "{{ (managed_secrets_path, managed_vault_password_filename) | path_join }}"
+managed_vault_password_file_path: "{{ (managed_vault_directory_path, managed_vault_password_filename) | path_join }}"

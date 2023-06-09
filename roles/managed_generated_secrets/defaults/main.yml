@@ -1,0 +1,2 @@
+managed_generated_secrets_dirname: managed_generated_secrets
+managed_generated_secrets_path: "{{ (managed_vault_directory_path, managed_generated_secrets_dirname) | path_join }}"
