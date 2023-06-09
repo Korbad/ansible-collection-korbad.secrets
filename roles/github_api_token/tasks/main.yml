@@ -1,0 +1,24 @@
+---
+- name: Authenticate with GitHub using gh CLI to launch a web browser
+  ansible.builtin.shell:
+    cmd: gh auth login --web --hostname {{ github_hostname }} --git-protocol ssh
+  environment:
+    GH_USERNAME: "{{ github_username }}"
+    GH_PASSWORD: "{{ github_password }}"
+  register: gh_auth_result
+  # no_log: true
+
+- name: Wait until user auth is complete
+  pause:
+    prompt: wait for auth
+
+- name: Get GitHub API token
+  ansible.builtin.shell:
+    cmd: "gh auth status --show-token"
+  register: gh_token_result
+  failed_when: "'Token:' not in gh_token_result.stdout"
+  # no_log: true
+
+- name: Set API token as a fact
+  set_fact:
+    github_api_token: "{{ gh_token_result.stdout_lines[-1] }}"

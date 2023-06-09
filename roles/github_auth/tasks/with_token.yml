@@ -1,0 +1,7 @@
+- name: Authenticate with GitHub using token
+  ansible.builtin.shell:
+    cmd: echo "{{ github_token }}" | gh auth login --with-token
+  when:
+  - gh_auth_status_result.rc == 1
+  - github_token is defined
+  register: gh_auth_result

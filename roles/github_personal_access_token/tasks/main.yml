@@ -1,6 +1,6 @@
 ---
 - name: Ensure managed secret exists
   include_role:
-    name: korbad.project_management.managed_user_secret
+    name: managed_user_secret
   vars:
-    managed_secret_name: github_personal_access_token
+    managed_user_secret_name: github_personal_access_token

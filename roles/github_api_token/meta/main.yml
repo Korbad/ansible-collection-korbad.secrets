@@ -1,0 +1,4 @@
+---
+dependencies:
+- korbad.workstation.github_cli
+- github_userpass
