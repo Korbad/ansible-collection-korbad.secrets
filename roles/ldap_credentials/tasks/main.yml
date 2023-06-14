@@ -1,0 +1,9 @@
+---
+- name: Ensure managed ldap secrets exist
+  include_role:
+    name: korbad.secrets.managed_user_secret
+  vars:
+    managed_user_secret_name: "{{ item }}"
+  loop:
+  - ldap_username
+  - ldap_password
