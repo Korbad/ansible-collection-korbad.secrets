@@ -17,5 +17,8 @@
 
 - name: Encrypt (ansible-vault) managed secret {{ managed_user_secret_path }}
   command:
-    cmd: ansible-vault encrypt {{ managed_user_secret_path }} --vault-password-file {{ managed_vault_password_file_path }}
+    cmd: ansible-vault encrypt {{ managed_user_secret_path }}
   no_log: true
+  environment: 
+    DEFAULT_VAULT_IDENTITY_LIST: default
+    DEFAULT_VAULT_PASSWORD_FILE: "{{ managed_vault_password_file_path }}"
