@@ -10,4 +10,4 @@ argument_specs:
       managed_user_secret_value:
           type: "str"
           required: false
-          description: secret value (default random)
+          description: secret value (default is to prompt user)
